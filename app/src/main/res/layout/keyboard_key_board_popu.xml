@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <me.yoqi.android.safekeyboard.keyboard.CustomKeyboardView
+            <me.yoqi.android.safekeyboard.keyboard.view.CustomKeyboardView
                 android:id="@+id/keyboard_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:keyTextColor="#ffffff"
                 android:visibility="gone" />
 
-            <me.yoqi.android.safekeyboard.keyboard.CustomKeyboardView
+            <me.yoqi.android.safekeyboard.keyboard.view.CustomKeyboardView
                 android:id="@+id/keyboard_view_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

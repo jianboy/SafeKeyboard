@@ -1,4 +1,4 @@
-package me.yoqi.android.safekeyboard.keyboard;
+package me.yoqi.android.safekeyboard.keyboard.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -15,8 +15,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import me.yoqi.android.safekeyboard.R;
+import me.yoqi.android.safekeyboard.keyboard.KhKeyboardView;
 
-/** 自定义全键盘布局
+/** 自定义全键盘布局 继承系统的 KeyboardView
  * Created by liuyu1 on 2017/8/2.
  */
 
@@ -27,6 +28,9 @@ public class CustomKeyboardView extends KeyboardView {
         this.context = context;
     }
 
+    /** 绘制一个键盘
+     * @param canvas
+     */
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -69,20 +73,15 @@ public class CustomKeyboardView extends KeyboardView {
 
     private void drawText(Canvas canvas, Keyboard.Key key) {
         try {
-            Rect bounds = new Rect();
+            Rect bounds = new Rect(); //矩形
             Paint paint = new Paint();
             paint.setTextAlign(Paint.Align.CENTER);
-
-
             paint.setAntiAlias(true);
-
             paint.setColor(Color.WHITE);
 
             if (key.label != null) {
                 String label = key.label.toString();
-
                 Field field;
-
                 if (label.length() > 1 && key.codes.length < 2) {
                     int labelTextSize = 0;
                     try {
@@ -110,7 +109,6 @@ public class CustomKeyboardView extends KeyboardView {
                     paint.setTextSize(keyTextSize);
                     paint.setTypeface(Typeface.DEFAULT);
                 }
-
                 paint.getTextBounds(key.label.toString(), 0, key.label.toString()
                         .length(), bounds);
                 canvas.drawText(key.label.toString(), key.x + (key.width / 2),
