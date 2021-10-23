@@ -2,8 +2,23 @@ plugins {
     id 'com.android.application'
 }
 
+def keystoreProperties = new Properties()
+def keystoreProperitiesFile = rootProject.file('keystore.properties')
+if (keystoreProperitiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystoreProperitiesFile))
+}
+
 android {
     compileSdkVersion 30
+    
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storePassword keystoreProperties['storePassword']
+        }
+    }
 
     defaultConfig {
         applicationId "me.yoqi.android.safekeyboard"
@@ -19,6 +34,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            multiDexEnabled true
         }
     }
     compileOptions {
