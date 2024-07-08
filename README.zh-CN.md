@@ -5,11 +5,12 @@
 
 [English](./README.md) | [中文](./README.zh-CN.md)
 
-android safe keybodard.
+安卓安全键盘
 
 ## Usage
 
 ![](https://git.yoqi.me/attachments/cae11a93-c461-48dd-b40c-387eb931e71d)
+
 ## develop
 
 ```
@@ -19,6 +20,3 @@ android safe keybodard.
 ## License
 
 Licensed under the [Apache 2.0](LICENSE) © [liuyuqi.gov@msn.cn](https://github.com/jianboy)
-
-
-
